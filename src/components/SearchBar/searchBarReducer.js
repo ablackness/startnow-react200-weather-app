@@ -69,54 +69,6 @@ export default function SearchBarReducer (state = defaultState, action) {
             break;
         }
 
-        case ('GET_FORECAST_FULFILLED'): {
-            if (payload) {
-                return {
-                    ...state,
-                    temperature: payload.main.temp,
-                    pressure: payload.main.pressure,
-                    humidity: payload.main.humidity,
-                    lowTemp: payload.main.temp_min,
-                    highTemp: payload.main.temp_max,
-                    windSpeed: payload.wind.speed,
-                    icon: payload.weather[0].icon,
-                    lat: payload.coord.lat,
-                    lon: payload.coord.lon,
-                    displayedCity: payload.name,
-                    selectedCity: '',
-                    noResult: false,
-                    firstRender: false,
-                    pending: false
-                };
-            } else {
-                return {
-                    ...state,
-                    noResult: true,
-                    selectedCity: ''
-                }
-            }
-            
-            break;
-        }
-
-        case (types.GET_FORECAST + '_REJECTED'): {
-            return {
-                ...state,
-                noResult: true,
-                pending: false,
-                selectedCity: ''
-            };
-            break;
-        }
-
-        case (types.GET_FORECAST + '_PENDING'): {
-            return {
-                ...state,
-                pending: true
-            };
-            break;
-        }
-
         case types.UPDATE_CITY: {
             return {
                 ...state,

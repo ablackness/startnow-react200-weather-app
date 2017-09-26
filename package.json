@@ -2,6 +2,9 @@
   "name": "origin-react-starter",
   "version": "0.1.0",
   "description": "Base application setup for creating a new react project.",
+  "engines": {
+    "node": "6.11.1"
+  },
   "main": "server/index.js",
   "scripts": {
     "build": "webpack",
